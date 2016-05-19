@@ -51,7 +51,7 @@
                         <b>Marca: </b>{{producte.marca}}<br>
                         <b>Descripcio:</b><br>
                         <p>{{producte.descripcio}}</p>
-                        <b>Preu: </b>{{producte.preu}}<br><br>
+                        <b>Preu: </b>{{producte.preu | currency : "" : fractionSize}} €<br><br>
                         <a class="btn btn-primary" href="#/producte/detalls/{{producte._id}}">Detalls</a>
                     </div>
                     <div class="col-md-6">
