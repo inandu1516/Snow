@@ -1,0 +1,27 @@
+<a href="#/">producte > </a><a href="">detalls</a>
+
+<div class="panel panel-default" ng-init="getProducte()">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{producte.nom}}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4">
+                <img id="imgDetalls" class="thumbnail" src="{{producte.img_url}}">
+            </div>
+            <div class="col-md-8">
+                </p>{{producte.descripcio}}</p>
+                <ul class="list-group">
+                    <li class="list-group-item">Actualitzat: {{producte.updated | date : format : date:'yyyy-MM-dd HH:mm:ss Z'}}</li>
+                    <li class="list-group-item">Disponible: {{producte.stock === true ? "Si" : "No"}}</li>
+                    <li class="list-group-item">Categoria: {{producte.categoria}}</li>
+                    <li class="list-group-item">Marca: {{producte.marca}}</li>
+                    <li class="list-group-item">Preu: {{producte.preu}}</li>
+                </ul>
+                <a class="btn btn-info" href="#/">Return</a>
+                <a class="btn btn-warning" href="#/producte/edita/{{producte._id}}">Edita</a>
+                <a class="btn btn-danger" ng-click="borraProducte(producte._id)">Borra Article</a>
+            </div>
+        </div>
+    </div>
+</div>

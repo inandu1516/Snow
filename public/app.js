@@ -11,36 +11,36 @@ myApp.config(function($routeProvider){
     })
     // .when('/register',{
     //     controller:'BooksController',
-    //     templateUrl: 'views/register.html'
+    //     templateUrl: 'vistes/register.html'
     // })
     // .when('/login',{
     //     controller:'BooksController',
-    //     templateUrl: 'views/login.html'
+    //     templateUrl: 'vistes/login.html'
     // })
     // .when('/login/:name', {
     //     controller:'BooksController',
-    //     templateUrl: 'views/userProfile.html'
+    //     templateUrl: 'vistes/userProfile.html'
     // })
     // .when('/users', {
     //     controller:'BooksController',
-    //     templateUrl: 'views/users.html'
+    //     templateUrl: 'vistes/users.html'
     // })
     .when('/productes', {
         controller:'ProductesController',
         templateUrl: 'vistes/productes.html'
     })
-    // .when('/books/details/:id',{
-    //     controller:'BooksController',
-    //     templateUrl: 'views/book_details.html'
-    // })
+    .when('/producte/detalls/:id',{
+        controller:'ProductesController',
+        templateUrl: 'vistes/producteDetalls.html'
+    })
     .when('/crearProducte',{
         controller:'ProductesController',
         templateUrl: 'vistes/crearProducte.html'
     })
-    // .when('/books/edit/:id',{
-    //     controller:'BooksController',
-    //     templateUrl: 'views/edit_book.html'
-    // })
+    .when('/producte/edita/:id',{
+        controller:'ProductesController',
+        templateUrl: 'vistes/editaProducte.html'
+    })
     .otherwise({
             redirectTo: '/'
         });

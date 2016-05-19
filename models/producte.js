@@ -52,9 +52,35 @@ module.exports.getProductes = function (callback) {
     Producte.find(callback);
 };
 
+// Get Producte by Id
+module.exports.getProducteById = function (id, callback) {
+    Producte.findById(id, callback);
+};
+
+// Update Book
+module.exports.editaProducte = function(id, producte, options, callback){
+    var query = {_id: id};
+    var update = {
+        nom: producte.nom,
+        categoria: producte.categoria,
+        descripcio: producte.descripcio,
+        preu: producte.preu,
+        img_url: producte.img_url,
+        stock: producte.stock,
+        updated: Date.now()
+    };
+    Producte.findOneAndUpdate(query, update, options, callback);
+};
+
 // Crea Producte Nou
 module.exports.crearProducte = function (producte, callback) {
     Producte.create(producte, callback);
+};
+
+// Borra article
+module.exports.borraProducte = function(id, callback){
+    var query = {_id: id};
+    Producte.remove(query, callback);
 };
 
 /**

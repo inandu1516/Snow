@@ -1,3 +1,16 @@
 img {
     width: 200px;
 }
+
+textarea {
+    min-height: 7em!important;
+}
+
+.form-control {
+    font-style: italic;
+    color: #9A9A9A;
+}
+
+#imgDetalls {
+    width: 23em;
+}

@@ -1,0 +1,50 @@
+<a href="#/">productes > </a><a href="#/producte/detalls/{{producte._id}}">detalls > </a><a href="">edita</a>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Edita Producte</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <!--ng-init="getBook() will fill all the information of the book in the forms-->
+                <form ng-submit="editaProducte()" ng-init="getProducte()">
+                    <div class="form-group">
+                        <label>Nom Article</label>
+                        <input type="text" class="form-control" ng-model ="producte.nom" placeholder="Title">
+                    </div>
+                    <div class="form-group">
+                        <label>Disponible</label>
+                        <input type="text" class="form-control" ng-model="producte.stock" placeholder="disponible">
+                    </div>
+                    <div class="form-group">
+                        <label>Categoria</label>
+                        <select ng-model="producte.categoria" class="form-control">
+                            <option value="Ski">Ski</option>
+                            <option value="Snow">Snow</option>
+                            <option value="Alpinisme">Alpinisme</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Marca</label>
+                        <input type="text" class="form-control" ng-model="producte.marca" placeholder="Marca">
+                    </div>
+                    <div class="form-group">
+                        <label>Descripcio</label>
+                        <textarea class="form-control" ng-model="producte.descripcio" placeholder="Descripcio"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Preu</label>
+                        <input type="text" class="form-control" ng-model="producte.preu" placeholder="preu"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <input type="text" class="form-control" ng-model="producte.img_url" placeholder="Image URL">
+                    </div>
+                    <button type="submit" class="btn btn-success">Actualitza</button>
+                    <a class="btn btn-info" href="#/producte/detalls/{{producte._id}}">Retorna</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

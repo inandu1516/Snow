@@ -61,15 +61,15 @@ app.get('/productes', function(req, res){
 //     });
 // });
 //
-// app.get('/books/details/:id', function(req, res){
-//     Book.getBookById(req.params.id, function(err, book){
-//         if(err){
-//             throw err;
-//         }
-//         res.json(book);
-//     });
-// });
-//
+app.get('/producte/detalls/:id', function(req, res){
+    Producte.getProducteById(req.params.id, function(err, producte){
+        if(err){
+            throw err;
+        }
+        res.json(producte);
+    });
+});
+
 app.post('/productes', function(req, res){
     var producte = req.body;
     Producte.crearProducte(producte, function(err, producte){
@@ -79,27 +79,27 @@ app.post('/productes', function(req, res){
         res.json(producte);
     });
 });
-//
-// app.put('/books/:_id', function(req, res){
-//     var id = req.params._id;
-//     var book = req.body;
-//     Book.editBook(id, book, {}, function(err, book){
-//         if(err){
-//             throw err;
-//         }
-//         res.json(book);
-//     });
-// });
-//
-// app.delete('/books/:_id', function(req, res){
-//     var id = req.params._id;
-//     Book.deleteBook(id, function(err, book){
-//         if(err){
-//             throw err;
-//         }
-//         res.json(book);
-//     });
-// });
+
+app.put('/producte/:_id', function(req, res){
+    var id = req.params._id;
+    var producte = req.body;
+    Producte.editaProducte(id, producte, {}, function(err, producte){
+        if(err){
+            throw err;
+        }
+        res.json(producte);
+    });
+});
+
+app.delete('/producte/:_id', function(req, res){
+    var id = req.params._id;
+    Producte.borraProducte(id, function(err, producte){
+        if(err){
+            throw err;
+        }
+        res.json(producte);
+    });
+});
 
 
 app.listen(3000);

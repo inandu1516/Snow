@@ -15,34 +15,34 @@ myApp.controller('ProductesController', ['$scope', '$http', '$location', '$route
             });
         };
 
-        // $scope.getBook = function(){
-        //     var id = $routeParams.id;
-        //     $http.get('/books/details/' + id).success(function(response) {
-        //         $scope.book = response;
-        //     });
-        // };
-        //
+        $scope.getProducte = function(){
+            var id = $routeParams.id;
+            $http.get('/producte/detalls/' + id).success(function(response) {
+                $scope.producte = response;
+            });
+        };
+
         $scope.crearProducte = function(){
             $http.post('/productes', $scope.producte).success(function(response) {
                 window.location.href = '#/productes';
             });
         };
-        //
-        // $scope.editBook = function(){
-        //     var id = $routeParams.id;
-        //     $http.put('/books/' + id, $scope.book).success(function(response) {
-        //         alert("Updated succesfully");
-        //     });
-        // };
-        //
-        // $scope.deleteBook = function(id){
-        //     if (confirm("Sure to delete ?")) {
-        //         $http.delete('/books/' + id).success(function(response) {
-        //             window.location.href = '#/books';
-        //         });
-        //     }
-        // };
-        //
+
+        $scope.editaProducte = function(){
+            var id = $routeParams.id;
+            $http.put('/producte/' + id, $scope.producte).success(function(response) {
+                alert("Actualitzat Correctament!");
+            });
+        };
+
+        $scope.borraProducte = function(id){
+            if (confirm("Segur vols eliminar-lo ?")) {
+                $http.delete('/producte/' + id).success(function(response) {
+                    window.location.href = '#/';
+                });
+            }
+        };
+
         // //---------- USERS FUNCTIONS -----------
         //
         // //https://www.youtube.com/watch?v=Pty0R0fC8OM
