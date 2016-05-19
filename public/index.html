@@ -1,0 +1,46 @@
+<html ng-app="myApp">
+<head>
+    <title>Snow Store</title>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/app.js"></script>
+    <script src="/controladors/productes.js"></script>
+    <script src="/controladors/usuaris.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/books">Cataleg</a>
+                <!--<span ng-hide="currentUser">-->
+                    <a class="navbar-brand" href="#/register">Registra't</a>
+                    <a class="navbar-brand" href="#/login">Login</a>
+                <!--</span>-->
+                 <!--<span ng-show="currentUser">-->
+                    <a class="navbar-brand" href="#/Profile">Perfil</a>
+                 <!--</span>-->
+            <a class="navbar-brand" href="#/users">Usuaris</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/crearProducte">Crear Producte</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div ng-view>ng-view</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

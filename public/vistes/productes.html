@@ -1,0 +1,59 @@
+<div class="panel panel-default" ng-init="getProductes()">
+    <div class="panel-heading">
+        <h3 class="panel-title">Cataleg Productes</h3>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group" style="width: 200px;">
+            <label>Filtra per Categoria</label>
+                <select ng-model="categoriaFilter" class="form-control">
+                    <option value="">Tots</option>
+                    <option value="Ski">Ski</option>
+                    <option value="Snow">Snow</option>
+                    <option value="Alpinisme">Alpinisme</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group" style="width: 200px;">
+            <label>Filtra diponibles</label>
+                <select ng-model="stockFilter" class="form-control">
+                    <option value="">Tots</option>
+                    <option value="true">en stock</option>
+                    <option value="false">descatalogat</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group" style="width: 100px;">
+                <label >Filtra per preu </label>
+                <input class="form-control" type="number" ng-model="preuFilter" >
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="row">
+            <!--{{productes}}-->
+            <div ng-repeat="producte in productes | filter:categoriaFilter | filter:preuFilter">
+                <div class="col-md-6">
+                    <div class="col-md-6">
+                        <h3>{{producte.nom}}</h3>
+                        <b>Actualitzat: </b>{{producte.updated | date : format : date:'yyyy-MM-dd HH:mm:ss Z'}}<br>
+                        <b>Disponible: </b>{{producte.stock === true ? "Si" : "No"}}<br><br>
+                        <b>Categoria: </b>{{producte.categoria}}<br>
+                        <b>Marca: </b>{{producte.marca}}<br>
+                        <b>Descripcio:</b><br>
+                        <p>{{producte.descripcio}}</p>
+                        <b>Preu: </b>{{producte.preu}}<br><br>
+                        <a class="btn btn-primary" href="#/productes/detalls/{{producte._id}}">Mes detalls</a>
+                    </div>
+                    <div class="col-md-6">
+                        <img class="thumbnail" src="{{producte.img_url}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
