@@ -3,6 +3,7 @@
         <h3 class="panel-title">Cataleg Productes</h3>
     </div>
 
+    <!-- -------FILTERS------- -->
     <div class="row">
         <div class="col-md-4">
             <div class="form-group" style="width: 200px;">
@@ -26,9 +27,13 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="form-group" style="width: 100px;">
-                <label >Filtra per preu </label>
-                <input class="form-control" type="number" ng-model="preuFilter" >
+            <div class="form-group" style="width: 200px;">
+                <label >Ordena per Preu </label>
+                <select class="form-control" ng-model="preuFilter">
+                    <option value="">No ordenis</option>
+                    <option value="-preu">Mes cars primer</option>
+                    <option value="preu">Mes barats</option>
+                </select>
             </div>
         </div>
     </div>
@@ -36,8 +41,7 @@
     <div class="panel-body">
         <div class="row">
             <!--{{productes}}-->
-            <!-- | filter:categoriaFilter -->
-            <div ng-repeat="producte in productes | filter:stockFilter | filter:categoriaFilter">
+            <div ng-repeat="producte in productes | filter:stockFilter | filter:categoriaFilter | orderBy:preuFilter">
                 <div class="col-md-6">
                     <div class="col-md-6">
                         <h3>{{producte.nom}}</h3>
