@@ -37,7 +37,11 @@ myApp.config(function($routeProvider){
         controller:'UsuarisController',
         templateUrl: 'vistes/login.html'
     })
-    .when('/login/:username', {
+    .when('/perfilUsuari/:username', {
+        controller:'UsuarisController',
+        templateUrl: 'vistes/perfilUsuari.html'
+    })
+    .when('/perfilUsuari', {
         controller:'UsuarisController',
         templateUrl: 'vistes/perfilUsuari.html'
     })

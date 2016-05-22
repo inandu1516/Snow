@@ -1,7 +1,7 @@
 var myApp = angular.module('myApp');
 
-myApp.controller('UsuarisController', ['$scope', '$http', '$location', '$routeParams',
-    function($scope, $http, $location, $routeParams){
+myApp.controller('UsuarisController', ['$scope', '$rootScope', '$http', '$location', '$routeParams',
+    function($scope, $rootScope, $http, $location, $routeParams){
 
         console.log("entered to UsuarisController");
 
@@ -12,13 +12,26 @@ myApp.controller('UsuarisController', ['$scope', '$http', '$location', '$routePa
             });
         };
 
-        $scope.loginUsuari = function () {
-            var username = $scope.usuari.username;
-            var password = $scope.usuari.password;
-            console.log("Trying to loggin with " + username + " with password " + password);
-            window.location.href = '#/login/' + username;
+        $scope.loginUser = function(){
+            console.log("loginUser");
+            var user = $scope.user;
+            var username = $scope.user.username;
+            console.log(user.username);
+            console.log(user);
+            $http.post('/login', user).success(function(response) {
+                console.log("success");
+                console.log(response);
+                if(response == null){
+                    console.log("NO S'HA TROBAT CAP USUARI");
+                }else{
+                    $rootScope.currentUser = response;
+                    $location.url("/perfilUsuari");
+                }
+                // $scope.usuari = response;
+                // window.location.href = '#/perfilUsuari/' +  $scope.usuari.username;
+            });
         };
-
+        
         $scope.getUsuari = function(){
             var username = $routeParams.username;
             console.log("entered to getUser() : name = "+username);
@@ -31,9 +44,10 @@ myApp.controller('UsuarisController', ['$scope', '$http', '$location', '$routePa
         $scope.registerUser = function () {
             $http.post('/registerUser', $scope.user).success(function(response) {
                 console.log("$scope.name: " + $scope.name);
-                var name = $scope.user.name;
+                var name = $scope.user;
                 alert("User " + name + " registrat OK");
-                window.location.href = '#/login';
+                // window.location.href = '#/login';
+                $location.url("/login");
             });
         };
 

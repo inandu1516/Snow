@@ -45,6 +45,9 @@ module.exports.getUsuari = function (username, callback) {
     Usuari.findOne({username: username}, callback).populate('productes');
 };
 
+module.exports.getUser = function (user, callback) {
+    Usuari.findOne({username: user.username, password: user.password}, callback).populate('productes');
+};
 
 
 /**

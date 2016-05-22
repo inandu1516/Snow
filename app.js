@@ -88,17 +88,27 @@ app.get('/usuaris', function(req, res){
     });
 });
 
-app.get('/login/:username', function(req, res){
-    var userName = req.params.username;
-    // var userPassword = req.params.password;
-    console.log("app.get'/login/:name' --> name : " + userName);
-    Usuari.getUsuari(userName, function(err, usuari){
+app.post('/login', function(req, res){
+    var user = req.body;
+    console.log("app.post('/login')");
+    console.log(user);
+    Usuari.getUser(user, function(err, usuari){
         if(err){
             throw err;
         }
         res.json(usuari);
     });
 });
+
+// app.post("/login", function (req, res) {
+//     var user = req.body;
+//     Usuari.getUser(user.username, user.password, function(err, foundUser){
+//         if(err){
+//             throw err;
+//         }
+//         res.json(foundUser);
+//     });
+// });
 
 app.listen(3000);
 console.log('Running on port 3000...');

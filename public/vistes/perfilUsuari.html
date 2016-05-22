@@ -1,8 +1,12 @@
 <a href="#/">Home</a> > <a href="#/login">Login</a> > <a href="">Perfil</a>
-<div class="panel panel-default" ng-init="getUsuari()">
+<!--<div class="panel panel-default" ng-init="getUser()">-->
+<div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title">Perfile de {{usuari.username}}</h3>
+        <h3 class="panel-title">Perfile de {{user.username}}</h3>
     </div>
+    {{currentUser}}
+    {{user}}
+    {{usuari}}
     <div class="panel-body">
         <b>name: </b>{{usuari.username}}<br>
         <b>email: </b>{{usuari.email}}<br>
