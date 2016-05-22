@@ -2,10 +2,9 @@
     <div class="panel-heading">
         <h3 class="panel-title">Cataleg Productes</h3>
     </div>
-
     <!-- -------FILTERS------- -->
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="form-group" style="width: 200px;">
             <label>Filtra per Categoria</label>
                 <select ng-model="categoriaFilter" class="form-control">
@@ -16,7 +15,7 @@
                 </select>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="form-group" style="width: 200px;">
             <label>Filtra diponibles</label>
                 <select ng-model="stockFilter" class="form-control">
@@ -26,7 +25,7 @@
                 </select>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="form-group" style="width: 200px;">
                 <label >Ordena per Preu </label>
                 <select class="form-control" ng-model="preuFilter">
@@ -36,12 +35,18 @@
                 </select>
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="form-group" style="width: 200px;">
+                <label>Filtra per Nom Producte </label>
+                <input class="form-control" type="text" ng-model="nameFilter" placeholder="Nom article">
+            </div>
+        </div>
     </div>
 
     <div class="panel-body">
         <div class="row">
             <!--{{productes}}-->
-            <div ng-repeat="producte in productes | filter:stockFilter | filter:categoriaFilter | orderBy:preuFilter">
+            <div ng-repeat="producte in productes | filter:nameFilter | filter:stockFilter | filter:categoriaFilter | orderBy:preuFilter">
                 <div class="col-md-6">
                     <div class="col-md-6">
                         <h3>{{producte.nom}}</h3>

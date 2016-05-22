@@ -84,6 +84,7 @@ module.exports.editaProducte = function(id, producte, options, callback){
     var query = {_id: id};
     var update = {
         nom: producte.nom,
+        marca: producte.marca,
         categoria: producte.categoria,
         descripcio: producte.descripcio,
         preu: producte.preu,
