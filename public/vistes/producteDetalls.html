@@ -1,4 +1,4 @@
-<a href="#/">producte > </a><a href="">detalls</a>
+<a href="#/">producte</a> > <a href="">detalls</a>
 
 <div class="panel panel-default" ng-init="getProducte()">
     <div class="panel-heading">
@@ -22,6 +22,22 @@
                 <a class="btn btn-warning" href="#/producte/edita/{{producte._id}}">Edita</a>
                 <a class="btn btn-danger" ng-click="borraProducte(producte._id)">Borra Article</a>
             </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Usuari</th>
+                        <th>Comentari</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="coment in producte.comentaris">
+                        <td>{{coment.usuari}}</td>
+                        <td>{{coment.comentari}}</td>
+                        <td>{{coment.updated | date : format : date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

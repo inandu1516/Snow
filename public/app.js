@@ -9,22 +9,6 @@ myApp.config(function($routeProvider){
         controller:'ProductesController',
         templateUrl: 'vistes/productes.html'
     })
-    // .when('/register',{
-    //     controller:'BooksController',
-    //     templateUrl: 'vistes/register.html'
-    // })
-    // .when('/login',{
-    //     controller:'BooksController',
-    //     templateUrl: 'vistes/login.html'
-    // })
-    // .when('/login/:name', {
-    //     controller:'BooksController',
-    //     templateUrl: 'vistes/userProfile.html'
-    // })
-    // .when('/users', {
-    //     controller:'BooksController',
-    //     templateUrl: 'vistes/users.html'
-    // })
     .when('/productes', {
         controller:'ProductesController',
         templateUrl: 'vistes/productes.html'
@@ -41,7 +25,23 @@ myApp.config(function($routeProvider){
         controller:'ProductesController',
         templateUrl: 'vistes/editaProducte.html'
     })
+    .when('/usuaris',{
+        controller:'UsuarisController',
+        templateUrl: 'vistes/usuaris.html'
+    })
+    .when('/register',{
+        controller:'UsuarisController',
+        templateUrl: 'vistes/registre.html'
+    })
+    .when('/login',{
+        controller:'UsuarisController',
+        templateUrl: 'vistes/login.html'
+    })
+    .when('/login/:username', {
+        controller:'UsuarisController',
+        templateUrl: 'vistes/perfilUsuari.html'
+    })
     .otherwise({
-            redirectTo: '/'
-        });
+        redirectTo: '/'
+    });
 });

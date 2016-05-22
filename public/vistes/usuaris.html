@@ -1,0 +1,24 @@
+<a href="#/">Home > </a><a href="">Usuaris</a>
+<div class="panel panel-default" ng-init="getUsuaris()">
+    <div class="panel-heading">
+        <h3 class="panel-title">Usuaris</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            {{usuaris}}
+            <div ng-repeat="usuari in usuaris">
+                <div class="col-md-6">
+                    <div class="col-md-6">
+                        <b>User: </b>{{usuari.username}}<br>
+                        <b>Pass: </b>{{usuari.password}}<br>
+                        <b>Email: </b>{{usuari.email}}<br>
+                        <b>Productes:</b>
+                        <ul ng-repeat="producte in usuari.productes">
+                            <li>{{producte}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

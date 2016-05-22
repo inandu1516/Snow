@@ -9,7 +9,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
 Producte = require('./models/producte');
-// Usuari = require('./models/usuari');
+Usuari = require('./models/usuari');
 
 // // Connect to Mongoose
 mongoose.connect('mongodb://localhost/snowstore');
@@ -23,44 +23,21 @@ app.get('/productes', function(req, res){
         res.json(productes);
     });
 });
-//
-// app.get('/users', function(req, res){
-//     console.log("app.get('/books/users");
-//     User.getUsers(function(err, users){
-//         if(err){
-//             throw err;
-//         }
-//         res.json(users);
-//     });
-// });
-//
-// app.post('/registerUser', function(req, res){
-//     console.log("app.get('/registerUser");
-//     var user = req.body;
-//     // console.log(user.name);
-//     // console.log(user.password);
-//     // console.log(user.email);
-//     User.registerUser(user, function(err, user){
-//         if(err){
-//             throw err;
-//         }
-//         res.json(user);
-//     });
-// });
-//
-// app.get('/login/:name', function(req, res){
-//     var userName = req.params.name;
-//     var userPassword = req.params.password;
-//     console.log("app.get'/login/:name' --> name : " + userName);
-//     console.log("app.get'/login/:name' --> password : " + userPassword);
-//     User.getUser(req.params.name, function(err, user){
-//         if(err){
-//             throw err;
-//         }
-//         res.json(user);
-//     });
-// });
-//
+
+app.post('/registerUser', function(req, res){
+    console.log("app.get('/registerUser");
+    var user = req.body;
+    // console.log(user.name);
+    // console.log(user.password);
+    // console.log(user.email);
+    Usuari.registerUser(user, function(err, user){
+        if(err){
+            throw err;
+        }
+        res.json(user);
+    });
+});
+
 app.get('/producte/detalls/:id', function(req, res){
     Producte.getProducteById(req.params.id, function(err, producte){
         if(err){
@@ -101,6 +78,27 @@ app.delete('/producte/:_id', function(req, res){
     });
 });
 
+app.get('/usuaris', function(req, res){
+    console.log("app.get('/usuaris");
+    Usuari.getUsuaris(function(err, usuaris){
+        if(err){
+            throw err;
+        }
+        res.json(usuaris);
+    });
+});
+
+app.get('/login/:username', function(req, res){
+    var userName = req.params.username;
+    // var userPassword = req.params.password;
+    console.log("app.get'/login/:name' --> name : " + userName);
+    Usuari.getUsuari(userName, function(err, usuari){
+        if(err){
+            throw err;
+        }
+        res.json(usuari);
+    });
+});
 
 app.listen(3000);
 console.log('Running on port 3000...');

@@ -1,3 +1,5 @@
+//cd "\Program Files\MongoDB\Server\3.2\bin"
+
 var mongoose = require('mongoose');
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
@@ -37,11 +39,31 @@ var producteSchema = mongoose.Schema({
     },
     comentaris: [
         {
-            type: String,
-            required: false
+            usuari: {
+                type: String,
+                required: false
+            },
+            comentari: {
+                nom: String,
+                required: false
+            },
+            updated: {
+                type: Date,
+                default: Date.now()
+            }
         }
     ]
 });
+
+/**
+ *  COMENTARIS ==> push comentari a comentaris
+ *  ----------------------------------------------------
+ *  User   |     Comentari                |  Data
+ *  ----------------------------------------------------
+ *  user1       blblbllbbl                  xx/xx/XXXX
+ *  user2       xaxaaxaxaxa                 xx/xx/XXXX
+ *  ...
+ */
 
 Producte = mongoose.model('Producte', producteSchema);
 

@@ -1,0 +1,31 @@
+<a href="#/">Home</a> > <a href="#/login">Login</a> > <a href="">Perfil</a>
+<div class="panel panel-default" ng-init="getUsuari()">
+    <div class="panel-heading">
+        <h3 class="panel-title">Perfile de {{usuari.username}}</h3>
+    </div>
+    <div class="panel-body">
+        <b>name: </b>{{usuari.username}}<br>
+        <b>email: </b>{{usuari.email}}<br>
+        <div class="row">
+            <div ng-repeat="producte in usuari.productes">
+                <div class="col-md-6">
+                    <div class="col-md-6">
+                        <h3>{{producte.nom}}</h3>
+                        <div class="form-group">
+                            <label>Deixa un comentari</label>
+                            <textarea class="form-control" placeholder="valora aquest producte"></textarea>
+
+                            <!--Fer un push del comentari al array de Comentaris-->
+
+                            <br><a class="btn btn-success" href="#">Comenta</a>
+                            <a class="btn btn-primary" href="#/producte/detalls/{{producte._id}}">Detalls</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img class="thumbnail" src="{{producte.img_url}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
