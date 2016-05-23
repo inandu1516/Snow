@@ -47,14 +47,6 @@ myApp.controller('UsuarisController', ['$scope', '$rootScope', '$http', '$locati
             sessionStorage.removeItem("LoggedUserPass");
             $location.url("/");
         };
-        
-        // $scope.getUsuari = function(){
-        //     var username = $routeParams.username;
-        //     console.log("entered to getUser() : name = "+username);
-        //     $http.get('/login/' + username).success(function(response) {
-        //         $scope.usuari = response;
-        //     });
-        // };
 
         //https://www.youtube.com/watch?v=Pty0R0fC8OM
         $scope.registerUser = function () {
