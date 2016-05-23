@@ -37,6 +37,10 @@ myApp.config(function($routeProvider){
         controller:'UsuarisController',
         templateUrl: 'vistes/login.html'
     })
+    .when('/logout',{
+        controller:'UsuarisController',
+        templateUrl: 'vistes/logout.html'
+    })
     .when('/perfilUsuari/:username', {
         controller:'UsuarisController',
         templateUrl: 'vistes/perfilUsuari.html'

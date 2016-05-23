@@ -1,12 +1,31 @@
 //https://www.youtube.com/watch?v=qrIvv6OTN2Y
+/** ============= SESSIONS =============
+ * npm install passport --save
+ * npm install passport-local --save
+ * npm install cookie-parser --save
+ * npm install express-session --save
+ * https://www.youtube.com/watch?v=sgVL2kw0hSA
+ */
 
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
+var express       =   require('express');
+var bodyParser    =   require('body-parser');
+var mongoose      =   require('mongoose');
 
+// var sessions = require('client-sessions');
+// var session       =   require('express-session');
+var app           =   express();
+// var passport        = require('passport');
+// var LocalStrategy   = require('passport-local').Strategy;
+// var cookieParser    = require('cookie-parser');
+
+
+// app.use(cookieParser());
+// app.use(passport.initialize());
+// app.use(passport.session());
+// app.use(session({secret: 'hq3hfdjwj4rh34jn', saveUninitialized: false, resave: false}));
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.json());
+app.use(bodyParser.json()); 
+
 
 Producte = require('./models/producte');
 Usuari = require('./models/usuari');
@@ -90,8 +109,11 @@ app.get('/usuaris', function(req, res){
 
 app.post('/login', function(req, res){
     var user = req.body;
-    console.log("app.post('/login')");
-    console.log(user);
+    // req.session.user = user;
+    // console.log('req.session.user: ');
+    // console.log(req.session.user);
+    // console.log("app.post('/login')");
+    // console.log(user);
     Usuari.getUser(user, function(err, usuari){
         if(err){
             throw err;
@@ -99,16 +121,6 @@ app.post('/login', function(req, res){
         res.json(usuari);
     });
 });
-
-// app.post("/login", function (req, res) {
-//     var user = req.body;
-//     Usuari.getUser(user.username, user.password, function(err, foundUser){
-//         if(err){
-//             throw err;
-//         }
-//         res.json(foundUser);
-//     });
-// });
 
 app.listen(3000);
 console.log('Running on port 3000...');
