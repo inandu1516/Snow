@@ -17,20 +17,16 @@
 <nav class="navbar navbar-default navbar-fixed-top" style="opacity: 0.9;">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a title="Cataleg" class="navbar-brand toplink" href="#/productes">
+            <a title="Cataleg" class="navbar-brand link" href="#/productes">
                 Cataleg
                 <i class="fa fa-th" aria-hidden="true"></i>
             </a>
-            <a title="Perfil" class="navbar-brand toplink" href="#/perfilUsuari">
-                Perfil
-                <i class="fa fa-user" aria-hidden="true"></i>
-            </a>
-            <a title="Perfil" class="navbar-brand toplink" href="#/perfilUsuari">
+            <a title="Perfil" class="navbar-brand link" href="#/perfilUsuari" ng-show="userLogged">
                 Compras
                 <i class="fa fa-shopping-basket" aria-hidden="true"></i>
             </a>
         </div>
-        <a class="navbar-brand toplink" style="margin-left: 20%"  ng-show="userLogged">
+        <a class="navbar-brand" id="Usertitle" ng-show="userLogged">
             Benvingut, <b>{{userLogged}}</b>
         </a>
         <div class="nav navbar-right">

@@ -49,6 +49,10 @@ myApp.config(function($routeProvider){
         controller:'UsuarisController',
         templateUrl: 'vistes/perfilUsuari.html'
     })
+    .when('/comprasUsuari', {
+        controller:'UsuarisController',
+        templateUrl: 'vistes/comprasUsuari.html'
+    })
     .otherwise({
         redirectTo: '/'
     });

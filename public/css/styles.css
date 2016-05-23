@@ -24,8 +24,24 @@ textarea {
     /*border: 1px solid #e4e4e4;*/
 }
 
+#Usertitle{
+    margin-left: 26%;
+    color: #31708F;
+}
+
 .toplink {
     padding-right: 1em;
+    color: #076BBF;
+    font-size: 17px;
+}
+
+.link {
+    color: #31708F!important;
+    font-size: 17px;
+}
+
+.link:hover{
+    color: #7FC2E4!important;
 }
 
 .alert {
@@ -34,9 +50,13 @@ textarea {
 }
 
 #registreBtn{
-    background-color: #337ab7;
+    background-color: #00b3ee;
     margin-right: 1.3em;
     color: white;
+}
+
+#registreBtn:hover {
+    background-color: #337ab7;
 }
 
 #loginBtn{
@@ -44,7 +64,15 @@ textarea {
     color: white;
 }
 
+#loginBtn:hover{
+    background-color: rgba(1, 117, 23, 1);
+}
+
 #logoutBtn{
-    background: rgba(255, 0, 59, 0.72);
+    background-color: rgb(255, 0, 59);
     color: white;
+}
+
+#logoutBtn:hover{
+    background: rgba(255, 0, 59, 0.72);
 }

@@ -1,17 +1,10 @@
-<ol class="breadcrumb">
-    <li><a href="#/">Cataleg</a></li>
-    <li><a href="#/login">Login</a></li>
-    <li class="active">Perfil</li>
-</ol>
-
-<div class="panel panel-success" ng-init="loginUser()">
+<a href="#/">Home</a> > <a href="#/login">Login</a> > <a href="">Perfil</a>
+<div class="panel panel-success">
     <div class="panel-heading">
         <h3 class="panel-title">Perfil de {{currentUser.username}}</h3>
     </div>
     <!--{{currentUser}}-->
     <div class="panel-body">
-        <b>Nom: </b>{{currentUser.username}}<br>
-        <b>email: </b>{{currentUser.email}}<br><br>
             <div ng-repeat="producte in currentUser.productes">
                 <div class="row">
                     <div class="col-lg-3">
@@ -21,7 +14,7 @@
                             <a class="btn btn-success" href="#">Comenta</a>
                         </div>
                     </div>
-                    <div class="col-lg-9">
+                    <div class="col-lg-8">
                         <h3>{{producte.nom}}</h3>
                         <div class="form-group">
                             <label>Deixa un comentari</label>
