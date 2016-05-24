@@ -25,23 +25,46 @@ myApp.controller('ProductesController', ['$rootScope', '$scope', '$http', '$loca
         };
 
         $scope.crearProducte = function(){
-            $http.post('/productes', $scope.producte).success(function(response) {
+            $http.post('/productes', $scope.producte).success(function() {
                 window.location.href = '#/productes';
             });
         };
 
         $scope.editaProducte = function(){
             var id = $routeParams.id;
-            $http.put('/producte/' + id, $scope.producte).success(function(response) {
+            $http.put('/producte/' + id, $scope.producte).success(function() {
                 alert("Actualitzat Correctament!");
             });
         };
 
         $scope.borraProducte = function(id){
             if (confirm("Segur vols eliminar-lo ?")) {
-                $http.delete('/producte/' + id).success(function(response) {
+                $http.delete('/producte/' + id).success(function() {
                     window.location.href = '#/';
                 });
+            }
+        };
+        
+        $scope.compraProducte = function (id) {
+            if (confirm($rootScope.userLogged + " s'hafegira " + id + " al carret, seguir ?")) {
+                console.log($rootScope.userLogged + " compra : " + id);
+
+                var compra = {
+                    userName: $rootScope.userLogged,
+                    producteID: id
+            };
+
+                console.log(compra);
+
+                $http.put('/comprar', compra).success(function() {
+                    alert(id + " sh'a afegit al carret. Gracies x comprar, " + $rootScope.userLogged);
+                });
+
+
+                // $http.put('/comprar',                                          // 1. url
+                //     {id: id},                                                          // 2. request body
+                //     {}   // 3. config object
+                // );
             }
         };
 

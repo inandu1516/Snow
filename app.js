@@ -8,23 +8,21 @@
  */
 
 var express       =   require('express');
+var app           =   express();
+var favicon       =   require('serve-favicon');
 var bodyParser    =   require('body-parser');
 var mongoose      =   require('mongoose');
 
-// var sessions = require('client-sessions');
-// var session       =   require('express-session');
-var app           =   express();
-// var passport        = require('passport');
-// var LocalStrategy   = require('passport-local').Strategy;
-// var cookieParser    = require('cookie-parser');
+
+//######################################//######################################
+//      Encriptar SessionStorage!
+//      http://stackoverflow.com/questions/22245612/how-can-i-encrypt-html5-web-storage
+//######################################//######################################
 
 
-// app.use(cookieParser());
-// app.use(passport.initialize());
-// app.use(passport.session());
-// app.use(session({secret: 'hq3hfdjwj4rh34jn', saveUninitialized: false, resave: false}));
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.json()); 
+app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(bodyParser.json());
 
 
 Producte = require('./models/producte');
@@ -46,9 +44,6 @@ app.get('/productes', function(req, res){
 app.post('/registerUser', function(req, res){
     console.log("app.get('/registerUser");
     var user = req.body;
-    // console.log(user.name);
-    // console.log(user.password);
-    // console.log(user.email);
     Usuari.registerUser(user, function(err, user){
         if(err){
             throw err;
@@ -87,6 +82,16 @@ app.put('/producte/:_id', function(req, res){
     });
 });
 
+app.put('/comprar', function(req, res){
+    var compra = req.body;
+    console.log(compra);
+    Usuari.compraProducte(compra.userName, compra.producteID, {}, function(err){
+        if(err){
+            throw err;
+        }
+    });
+});
+
 app.delete('/producte/:_id', function(req, res){
     var id = req.params._id;
     Producte.borraProducte(id, function(err, producte){
@@ -109,11 +114,6 @@ app.get('/usuaris', function(req, res){
 
 app.post('/login', function(req, res){
     var user = req.body;
-    // req.session.user = user;
-    // console.log('req.session.user: ');
-    // console.log(req.session.user);
-    // console.log("app.post('/login')");
-    // console.log(user);
     Usuari.getUser(user, function(err, usuari){
         if(err){
             throw err;

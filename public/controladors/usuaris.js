@@ -1,3 +1,4 @@
+
 var myApp = angular.module('myApp');
 
 myApp.controller('UsuarisController', ['$scope', '$rootScope', '$http', '$location', '$routeParams',

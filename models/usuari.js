@@ -1,3 +1,5 @@
+//cd "\Program Files\MongoDB\Server\3.2\bin"
+
 var mongoose = require('mongoose');
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
@@ -49,6 +51,18 @@ module.exports.getUser = function (user, callback) {
     Usuari.findOne({username: user.username, password: user.password}, callback).populate('productes');
 };
 
+module.exports.compraProducte = function (user, id) {
+    console.log("models.compraProducte() --> User: " + user + " | Producte: " + id);
+
+    Usuari.update({username: user},{$push: { productes: id }},{upsert:true},function(err) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Producte comprat correctament!");
+        }
+    });
+};
+
 
 /**
 
@@ -76,6 +90,11 @@ module.exports.getUser = function (user, callback) {
  
  var result = db.users.findOne({"username":"Inge"},{"productes":1})
  var compras = db.productes.find({"_id":{"$in":result["productes"]}})
+
+ > db.usuaris.update(
+     {username:'Linda'},
+     { $push: {productes: ObjectId("573d86cd5fdbda2817f9b614") } }
+ );
 
 
  */
