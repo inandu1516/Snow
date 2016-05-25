@@ -6,7 +6,7 @@
 
 <div class="panel panel-success" ng-init="loginUser()">
     <div class="panel-heading">
-        <h3 class="panel-title">Perfil de {{currentUser.username}}</h3>
+        <h3 class="panel-title">Perfil de <b>{{currentUser.username}}</b></h3>
     </div>
     <!--{{currentUser}}-->
     <div class="panel-body">
@@ -23,7 +23,10 @@
                         <label>Deixa un comentari</label>
                         <textarea ng-model="comentari" class="form-control" placeholder="valora aquest producte"></textarea>
                         <br>
-                        <button id="btnComenta" type="submit" class="btn btn-danger">Comenta</button>
+                        <button id="btnComenta" type="submit" class="btn btn-danger">
+                            Comenta
+                            <i class="fa fa-commenting" aria-hidden="true"></i>
+                        </button>
                     </form>
                 </div>
             </div>
