@@ -44,7 +44,7 @@ var producteSchema = mongoose.Schema({
                 required: false
             },
             comentari: {
-                nom: String,
+                type: String,
                 required: false
             },
             updated: {
@@ -94,6 +94,25 @@ module.exports.editaProducte = function(id, producte, options, callback){
     };
     Producte.findOneAndUpdate(query, update, options, callback);
 };
+
+// Comentar Producte
+module.exports.comentarProducte  = function (id, usuari, comentari) {
+    console.log("models.comentaProducte() --> ProucteID: " + id + " | User: " + usuari + " | Comentari: " + comentari);
+
+    var comentariProducte = {
+        usuari: usuari,
+        comentari: comentari
+    };
+
+    Producte.update({_id: id},{$push: { comentaris: comentariProducte }},{upsert:true},function(err) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Producte comentat correctament!");
+        }
+    });
+};
+    
 
 // Crea Producte Nou
 module.exports.crearProducte = function (producte, callback) {

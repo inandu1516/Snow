@@ -45,26 +45,20 @@ myApp.controller('ProductesController', ['$rootScope', '$scope', '$http', '$loca
             }
         };
         
-        $scope.compraProducte = function (id) {
-            if (confirm($rootScope.userLogged + " s'hafegira " + id + " al carret, seguir ?")) {
+        $scope.compraProducte = function (nom, id) {
+            if (confirm($rootScope.userLogged + " s'hafegira " + nom + " al carret, seguir ?")) {
                 console.log($rootScope.userLogged + " compra : " + id);
 
                 var compra = {
                     userName: $rootScope.userLogged,
                     producteID: id
-            };
+                };
 
                 console.log(compra);
 
                 $http.put('/comprar', compra).success(function() {
                     alert(id + " sh'a afegit al carret. Gracies x comprar, " + $rootScope.userLogged);
                 });
-
-
-                // $http.put('/comprar',                                          // 1. url
-                //     {id: id},                                                          // 2. request body
-                //     {}   // 3. config object
-                // );
             }
         };
 

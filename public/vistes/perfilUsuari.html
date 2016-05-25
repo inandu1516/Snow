@@ -12,26 +12,21 @@
     <div class="panel-body">
         <b>Nom: </b>{{currentUser.username}}<br>
         <b>email: </b>{{currentUser.email}}<br><br>
-            <div ng-repeat="producte in currentUser.productes">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <img class="thumbnail" style="width: 130px;margin: 10px auto;" src="{{producte.img_url}}">
-                        <div style="width:12em; margin:10px auto;" >
-                            <a class="btn btn-primary" href="#/producte/detalls/{{producte._id}}">Detalls</a>
-                            <a class="btn btn-success" href="#">Comenta</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <h3>{{producte.nom}}</h3>
-                        <div class="form-group">
-                            <label>Deixa un comentari</label>
-                            <textarea class="form-control" placeholder="valora aquest producte"></textarea>
-
-                            <!--Fer un push del comentari al array de Comentaris-->
-
-                        </div>
-                    </div>
+        <div ng-repeat="producte in currentUser.productes">
+            <div class="row">
+                <div class="col-lg-4">
+                    <img class="thumbnail" style="width: 200px;margin: 10px auto;" src="{{producte.img_url}}">
+                </div>
+                <div class="col-lg-7">
+                    <h3>{{producte.nom}}</h3>
+                    <form ng-submit="comentaProducte(producte._id, this.comentari)">
+                        <label>Deixa un comentari</label>
+                        <textarea ng-model="comentari" class="form-control" placeholder="valora aquest producte"></textarea>
+                             <!--Fer un push del comentari al array de Comentaris-->
+                        <button type="submit" class="btn btn-danger">Comenta</button>
+                    </form>
                 </div>
             </div>
+        </div>
     </div>
 </div>

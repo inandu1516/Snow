@@ -13,6 +13,12 @@ var favicon       =   require('serve-favicon');
 var bodyParser    =   require('body-parser');
 var mongoose      =   require('mongoose');
 
+/**
+ *          MEMORIA
+ *          
+ *
+ *
+ * */
 
 //######################################//######################################
 //      Encriptar SessionStorage!
@@ -86,6 +92,19 @@ app.put('/comprar', function(req, res){
     var compra = req.body;
     console.log(compra);
     Usuari.compraProducte(compra.userName, compra.producteID, {}, function(err){
+        if(err){
+            throw err;
+        }
+    });
+});
+
+app.put('/comentar', function(req, res){
+    var comentari = req.body;
+    console.log(comentari);
+    console.log(comentari.comentari);
+    console.log(comentari.usuari);
+    console.log(comentari.producteID);
+    Producte.comentarProducte(comentari.producteID, comentari.usuari, comentari.comentari, {}, function(err){
         if(err){
             throw err;
         }

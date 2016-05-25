@@ -58,7 +58,9 @@
                         <p>{{producte.descripcio}}</p>
                         <b>Preu: </b>{{producte.preu | currency : "" : fractionSize}} €<br><br>
                         <a class="btn btn-info" href="#/producte/detalls/{{producte._id}}">Detalls</a>
-                        <a class="btn btn-success" ng-click="compraProducte(producte._id)">Compra</a>
+                        <a class="btn btn-success" ng-click="compraProducte(producte.nom, producte._id)" ng-show="userLogged">
+                            Compra
+                        </a>
                     </div>
                     <div class="col-md-6">
                         <img class="thumbnail" src="{{producte.img_url}}">

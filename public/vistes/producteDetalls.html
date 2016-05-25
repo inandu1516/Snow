@@ -21,10 +21,16 @@
                     <li class="list-group-item">Marca: {{producte.marca}}</li>
                     <li class="list-group-item">Preu: {{producte.preu}} €</li>
                 </ul>
-                <a class="btn btn-success" ng-click="compraProducte(producte._id)">Compra</a>
-                <a class="btn btn-warning" href="#/producte/edita/{{producte._id}}">Edita</a>
+                <a class="btn btn-success" ng-click="compraProducte(producte.nom, producte._id)" ng-show="userLogged">
+                    Compra
+                </a>
+                <a class="btn btn-warning" href="#/producte/edita/{{producte._id}}" ng-show="userLogged">
+                    Edita
+                </a>
                 <a class="btn btn-info" href="#/">Retorna</a>
-                <a class="btn btn-danger" ng-click="borraProducte(producte._id)">Borra Article</a>
+                <a class="btn btn-danger" ng-click="borraProducte(producte._id)" ng-show="userLogged">
+                    Borra Article
+                </a>
             </div>
             <table class="table">
                 <thead>

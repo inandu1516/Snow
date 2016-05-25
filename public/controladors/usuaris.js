@@ -59,4 +59,21 @@ myApp.controller('UsuarisController', ['$scope', '$rootScope', '$http', '$locati
             });
         };
 
+        $scope.comentaProducte = function (id, comentari) {
+            console.log('Comentari a [' + id + "] = " + comentari);
+
+            var comentariUsuari = {
+                producteID: id,
+                usuari: $rootScope.userLogged,
+                comentari: comentari
+            };
+
+            console.log(comentariUsuari);
+
+            $http.put('/comentar', comentariUsuari).success(function() {
+                alert("Comentari afegit, gracies per la teva opinió !");
+            });
+
+        };
+
 }]);
