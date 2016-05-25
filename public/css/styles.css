@@ -12,7 +12,20 @@ textarea {
 }
 
 #imgDetalls {
-    width: 23em;
+    width: 22em;
+}
+
+.productInfoBox {
+    margin-left: -3em!important;
+}
+
+td, th, b {
+    padding: 1em;
+    font-size: small!important;
+}
+
+.taulaComentaris, th {
+    text-align: center;
 }
 
 .row {

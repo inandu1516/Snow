@@ -101,9 +101,6 @@ app.put('/comprar', function(req, res){
 app.put('/comentar', function(req, res){
     var comentari = req.body;
     console.log(comentari);
-    console.log(comentari.comentari);
-    console.log(comentari.usuari);
-    console.log(comentari.producteID);
     Producte.comentarProducte(comentari.producteID, comentari.usuari, comentari.comentari, {}, function(err){
         if(err){
             throw err;
