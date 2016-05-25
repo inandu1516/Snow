@@ -3,7 +3,7 @@
     <li class="active">Detalls</li>
 </ol>
 
-<div class="panel panel-info" ng-init="getProducte()">
+<div class="panel panel-info producteDetalls" ng-init="getProducte()">
     <div class="panel-heading">
         <h3 class="panel-title">{{producte.nom}}</h3>
     </div>
@@ -11,16 +11,26 @@
         <div class="row">
 
             <div class="col-md-4">
-                <img id="imgDetalls" class="thumbnail" src="{{producte.img_url}}">
+                <figure>
+                    <img id="imgDetalls" class="thumbnail" src="{{producte.img_url}}">
+                </figure>
+
+                <!--<img id="imgDetalls" class="thumbnail" src="{{producte.img_url}}">-->
                 <a class="btn btn-success" ng-click="compraProducte(producte.nom, producte._id)" ng-show="userLogged">
+                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
                     Compra
                 </a>
                 <a class="btn btn-warning" href="#/producte/edita/{{producte._id}}" ng-show="userLogged">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
                     Edita
                 </a>
-                <a class="btn btn-info" href="#/">Retorna</a>
                 <a class="btn btn-danger" ng-click="borraProducte(producte._id)" ng-show="userLogged">
-                    Borra Article
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    Borra
+                </a>
+                <a class="btn btn-info" href="#/">
+                <i id="prodDetallsArrow" class="fa fa-reply" aria-hidden="true"></i>
+                <!--Retorna-->
                 </a>
             </div>
             <div class="col-md-8 productInfoBox">
@@ -87,7 +97,7 @@
                     <div class="panel-heading">
                         Valoracions Usuaris
                     </div>
-                    <table class="table taulaComentaris">
+                    <table id="tableComentaris" class="table">
                         <thead>
                         <tr>
                             <th>Usuari</th>

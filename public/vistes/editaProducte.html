@@ -45,8 +45,14 @@
                         <label>Image URL</label>
                         <input type="text" class="form-control" ng-model="producte.img_url" placeholder="Image URL">
                     </div>
-                    <button type="submit" class="btn btn-success">Actualitza</button>
-                    <a class="btn btn-info" href="#/producte/detalls/{{producte._id}}">Retorna</a>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-refresh" aria-hidden="true"></i>
+                        Actualitza
+                    </button>
+                    <a class="btn btn-info" href="#/producte/detalls/{{producte._id}}">
+                        <i class="fa fa-reply" aria-hidden="true"></i>
+                        Retorna
+                    </a>
                 </form>
             </div>
         </div>

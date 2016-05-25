@@ -1,4 +1,4 @@
-<div class="panel panel-info" ng-init="getProductes()">
+<div class="panel panel-default" ng-init="getProductes()">
     <div class="panel-heading">
         <h3 class="panel-title">Cataleg Productes</h3>
     </div>
@@ -42,7 +42,6 @@
             </div>
         </div>
     </div>
-
     <div class="panel-body">
         <div class="row">
             <!--{{productes}}-->
@@ -50,20 +49,25 @@
                 <div class="col-md-6">
                     <div class="col-md-6">
                         <h3>{{producte.nom}}</h3>
-                        <b>Actualitzat: </b>{{producte.updated | date : format : date:'yyyy-MM-dd HH:mm:ss Z'}}<br>
+                        <b>Actualitzat: </b>{{producte.updated | date : format : date:'yyyy-MM-dd HH:mm:ss Z'}}<br><br>
                         <b class="ng-hide">{{producte.stock == true ? "true" : "false"}}</b>
                         <b>Categoria: </b>{{producte.categoria}}<br>
                         <b>Marca: </b>{{producte.marca}}<br>
                         <b>Descripcio:</b><br>
-                        <p>{{producte.descripcio}}</p>
+                        <p>{{producte.descripcio | limitTo: 100}} ...</p>
                         <b>Preu: </b>{{producte.preu | currency : "" : fractionSize}} €<br><br>
-                        <a class="btn btn-info" href="#/producte/detalls/{{producte._id}}">Detalls</a>
-                        <a class="btn btn-success" ng-click="compraProducte(producte.nom, producte._id)" ng-show="userLogged">
-                            Compra
-                        </a>
                     </div>
                     <div class="col-md-6">
                         <img class="thumbnail" src="{{producte.img_url}}">
+                        <a class="btn btn-info" href="#/producte/detalls/{{producte._id}}">
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            Detalls
+                        </a>
+                        <a class="btn btn-success" ng-click="compraProducte(producte.nom, producte._id)" ng-show="userLogged">
+                            <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
+                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                            Compra'l !
+                        </a>
                     </div>
                 </div>
             </div>
