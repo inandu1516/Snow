@@ -70,7 +70,7 @@ myApp.controller('UsuarisController', ['$scope', '$rootScope', '$http', '$locati
 
             console.log(comentariUsuari);
 
-            $http.put('/comentar', comentariUsuari).success(function() {
+            $http.put('/comentar', comentariUsuari).success(function(response) {
                 alert("Comentari afegit, gracies per la teva opinió !");
             });
 

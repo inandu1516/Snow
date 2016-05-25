@@ -17,12 +17,12 @@ var usuariSchema = mongoose.Schema({
         required: false
     },
     productes : [
-                    { 
-                        type: ObjectId,     //Sustituirá les ID's amb la info de 'productes'
-                        ref: 'Producte',
-                        required: false
-                    }
-                ]
+        {
+            type: ObjectId,     //Sustituirá les ID's amb la info de 'productes'
+            ref: 'Producte',
+            required: false
+        }
+    ]
 });
 
 Usuari = mongoose.model('Usuari', usuariSchema);
@@ -51,14 +51,12 @@ module.exports.getUser = function (user, callback) {
     Usuari.findOne({username: user.username, password: user.password}, callback).populate('productes');
 };
 
-module.exports.compraProducte = function (user, id) {
+module.exports.compraProducte = function (user, id, callback) {
     console.log("models.compraProducte() --> User: " + user + " | Producte: " + id);
 
     Usuari.update({username: user},{$push: { productes: id }},{upsert:true},function(err) {
         if (err) {
             console.log(err);
-        } else {
-            console.log("Producte comprat correctament!");
         }
     });
 };

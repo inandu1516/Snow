@@ -7,6 +7,19 @@ textarea {
     min-height: 4em!important;
 }
 
+#userIcon {
+    color: #5CB85C;
+}
+
+#rowFiltres {
+    padding-left: 2em;
+    padding-top: 1em;
+}
+
+#body-resultats {
+    padding-top: 0em;
+}
+
 #btnComenta {
     margin: 0 auto;
     display: block;

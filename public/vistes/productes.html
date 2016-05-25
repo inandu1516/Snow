@@ -3,7 +3,7 @@
         <h3 class="panel-title">Cataleg Productes</h3>
     </div>
     <!-- -------FILTERS------- -->
-    <div class="row">
+    <div class="row" id="rowFiltres">
         <div class="col-md-3">
             <div class="form-group" style="width: 200px;">
             <label>Filtra per Categoria</label>
@@ -42,7 +42,8 @@
             </div>
         </div>
     </div>
-    <div class="panel-body">
+    <!-- -------/FILTERS------- -->
+    <div class="panel-body" id="body-resultats">
         <div class="row">
             <!--{{productes}}-->
             <div ng-repeat="producte in productes | filter:nameFilter | filter:stockFilter | filter:categoriaFilter | orderBy:preuFilter">
