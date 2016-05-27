@@ -1,0 +1,87 @@
+> use snowstore
+
+##############################
+###        USUARI         ####
+##############################
+
+db.usuaris.insert(
+     {
+          "username": "TEST",
+          "password": "123",
+          "email": "prova@mean.js"
+     }
+ )
+
+ ##############################
+ ###       PRODUCTES       ####
+ ##############################
+
+
+db.productes.insert(
+     {
+         nom: 'Burton T1 DBoa',
+         categoria: 'snow',
+         marca: 'BURTON',
+         descripcio: 'Bota snowboard semirigida con cierre rapido de  doble sistema boa
+                      Botin intuition Pro
+                      Suela Vibram
+                      Flex 8',
+         preu: 239,
+         img_url: 'http://www.tactics.com/a/7mdp/9/burton-limelight-boa-womens-snowboard-boots-black-snow-leopard.jpg'
+     }
+)
+
+db.productes.insert(
+     {
+         nom: 'PIZ BIANCO JKT',
+         categoria: 'alpinisme',
+         marca: 'ORTOVOX',
+         descripcio: 'Si buscas una alternativa a las chaquetas aislantes de fibra sintética, pero no quieres pluma, la Piz Bianco Jacket de Ortovox',
+         preu: 149,
+         img_url: 'http://www.verticoutdoor.com/media/catalog/product/cache/2/image/cbcbef48e5e3bcce7c7ed908f20bc5b4/s/w/swisswool-jacket-piz-bianco-m-61003-blue-ocean-midres.jpg'
+     }
+)
+
+db.productes.insert(
+      {
+          nom: 'Scarpa Freedom SL',
+          categoria: 'ski',
+          marca: 'SCARPA',
+          descripcio: 'La Scarpa Freedom SL es una bota de esquí especialmente diseñada para los fanáticos del freeride o fuera de pista',
+          preu: 359,
+          img_url: 'http://www.verticoutdoor.com/media/catalog/product/cache/2/thumbnail/cbcbef48e5e3bcce7c7ed908f20bc5b4/f/r/freedom.jpg'
+      }
+)
+
+db.productes.insert(
+      {
+          nom: 'NEPAL CUBE GTX',
+          categoria: 'alpinisme',
+          marca: 'LA SPORTIVA',
+          descripcio: 'Bota de piel natural para alta montaña. La Sportiva Nepal Cube GTX es una bota rígida para alpinismo técnico y escalada',
+          preu: 235.99,
+          img_url: 'http://www.verticoutdoor.com/media/catalog/product/cache/2/image/cbcbef48e5e3bcce7c7ed908f20bc5b4/u/8/u8c1zuh1_1.jpg'
+      }
+)
+
+db.productes.insert(
+      {
+          nom: 'K PRO GTX JKT',
+          categoria: 'ski',
+          marca: 'MILLET',
+          descripcio: 'Chaqueta reforzada ultra-resistente para actividades severas en ambiente alpino',
+          preu: 239,
+          img_url: 'http://www.verticoutdoor.com/media/catalog/product/cache/2/thumbnail/cbcbef48e5e3bcce7c7ed908f20bc5b4/n/z/nzl012tw.jpg'
+      }
+)
+
+db.productes.insert(
+      {
+          nom: 'K2 Illusion',
+          categoria: 'snow',
+          marca: 'K2',
+          descripcio: 'Cuenta con un sistema de ventilación pasiva que aumenta el grado de confort durante el ejercicio y construcción In-Mold',
+          preu: 89.99,
+          img_url: 'http://www.barrabes.com/images/tienda/products/xlarge/230526.jpg'
+      }
+)

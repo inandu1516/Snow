@@ -18,6 +18,7 @@ body {
 img {
     width: 200px;
     height: 13.5em;
+    background-color: rgba(238, 238, 238, 0.66)!important;
 }
 
 textarea {
@@ -26,6 +27,16 @@ textarea {
 
 #userIcon {
     color: #5CB85C;
+}
+
+#crearProducte{
+    background-color: #00b3ee;
+    margin-right: 1em;
+    color: white;
+}
+
+#crearProducte:hover {
+    background-color: #337ab7;
 }
 
 #rowFiltres {
@@ -69,11 +80,6 @@ textarea {
     font-size: small;
     padding: inherit;
 }
-
-/*td, th, b {*/
-    /*padding: 1em;*/
-    /*font-size: small!important;*/
-/*}*/
 
 .taulaComentaris, th {
     text-align: center;

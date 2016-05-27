@@ -1,4 +1,7 @@
-<a href="#/productes">Retorna</a>
+<ol class="breadcrumb">
+    <li><a href="#/">Cataleg</a></li>
+    <li class="active">Crea Article</li>
+</ol>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">Crear Producte Nou</h3>
@@ -35,7 +38,10 @@
                         <label>Image</label>
                         <input type="text" class="form-control" ng-model="producte.img_url" placeholder="Image URL">
                     </div>
-                    <button type="submit" class="btn btn-success">Registrar</button>
+                    <button type="submit" class="btn btn-success">
+                        Crea
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    </button>
                 </form>
             </div>
         </div>

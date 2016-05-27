@@ -1,13 +1,22 @@
 <html ng-app="myApp">
 <head>
-    <title>Snow Store</title>
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <title>Snow-Mean</title>
+    <!--<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">-->
+    <!--<link rel="stylesheet" href="/css/styles.css">-->
+    <!--<link rel="stylesheet" href="/css/font-awesome-4.6.2/css/font-awesome.min.css">-->
+    <!--<script src="/bower_components/jquery/dist/jquery.js"></script>-->
+    <!--<script src="/bower_components/angular/angular.js"></script>-->
+    <!--<script src="/bower_components/angular-route/angular-route.js"></script>-->
+    <!--<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9//angular-route.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/font-awesome-4.6.2/css/font-awesome.min.css">
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/angular-route/angular-route.js"></script>
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
     <script src="/app.js"></script>
     <script src="/controladors/productes.js"></script>
     <script src="/controladors/usuaris.js"></script>
@@ -37,6 +46,10 @@
             <a class="navbar-brand toplink" href="#/login" id="loginBtn" ng-hide="userLogged">
                 Log-in
                 <i class="fa fa-sign-in" aria-hidden="true"></i>
+            </a>
+            <a class="navbar-brand toplink" href="#/crearProducte" id="crearProducte" ng-show="userLogged">
+                Crear Article
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
             </a>
             <a class="navbar-brand toplink" href="#/logout" id="logoutBtn" ng-show="userLogged">
                 Log-out
